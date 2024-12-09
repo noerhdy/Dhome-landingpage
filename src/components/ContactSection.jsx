@@ -8,12 +8,12 @@ const ContactSection = () => {
   return (
     <div
       id="about"
-      className="flex flex-col items-center justify-center w-full py-10 md:flex-row md:py-20"
+      className="flex flex-col items-center justify-center w-full py-10 md:flex-row md:py-20 "
     >
-      <div className="container overflow-hidden mx-5 w-[300px] h-[auto] md:w-[800px] rounded-2xl md:mx-0">
-        <img className="bg-cover " src={cp} />
+      <div className="container overflow-hidden  max-w-[600px] h-1/2 md:h-[auto] md:w-[800px] rounded-2xl">
+        <img className="object-cover bg-center aspect-square" src={cp} />
       </div>
-      <div className="flex flex-col items-center w-full ">
+      <div className="flex flex-col items-start w-full md:items-center ">
         <div className="flex flex-col items-start py-4 space-y-4 ">
           <span className="text-4xl font-semibold tracking-wide ">
             <h1>We are crafting</h1>

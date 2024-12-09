@@ -8,51 +8,59 @@ const Navbar = () => {
     setMobileDrawerOpen(!mobileDrawerOpen);
   };
   return (
-    <nav className="sticky top-0 z-50 py-2  ">
-      <div className="py-2 mx-5 relative backdrop-blur-lg bg-neutral-900 lg:text-sm rounded-md md:mx-24">
-        <div className="flex justify-between items-center">
-          <span className=" text-base font-semibold ml-4 text-neutral-50 md:bg-neutral-900 bg-orange-500 px-16 rounded-md md:justify-start tracking-wide cursor-default md:ml-8">
-            Dhome
-          </span>
-          <ul className="hidden lg:flex space-x-16  text-neutral-50 ">
-            {navItems.map((item, index) => (
-              <li key={index}>
-                <a
-                  className="hover:font-bold ease duration-300 tracking-wider hover:text-orange-500 "
-                  href={item.href}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <div className=" mr-5 md:mr-24 hidden lg:flex justify-center items-center">
-            <a href="#" className="py-2 px-3 text-neutral-50">
-              Cart
+    <div className="flex flex-col items-center overflow-hidden">
+      <nav className="fixed top-0 z-50 w-full max-w-screen-xl px-6 py-2 ">
+        <div className="relative py-2 rounded-md bg-neutral-900 lg:text-sm ">
+          <div className="flex items-center justify-between px-4 md:px-16">
+            {/* logo */}
+            <a href="#header">
+              <div className="px-2 text-base font-semibold tracking-wide rounded-md text-neutral-50">
+                Furni
+                <br />
+                Craft
+              </div>
             </a>
-          </div>
-          <div className=" lg:hidden md:flex flex-col justify-end mr-5  md:mr-24 ">
-            <button onClick={toggleNavbar} style={{ color: "#FFF" }}>
-              {mobileDrawerOpen ? <X /> : <Menu />}
-            </button>
-          </div>
-          {mobileDrawerOpen && (
-            <div className="fixed top-9 z-10 rounded-2xl   bg-neutral-900  w-full p-10 flex flex-col justify-center items-center lg:hidden">
-              <ul className=" text-neutral-50 ">
-                {navItems.map((item, index) => (
-                  <li
-                    key={index}
-                    className="hover:font-bold ease-in-out duration-300 tracking-wider py-4 hover:text-orange-500"
+
+            <ul className="hidden space-x-16 lg:flex text-neutral-50">
+              {navItems.map((item, index) => (
+                <li key={index}>
+                  <a
+                    className="tracking-wider duration-300   hover:text-[#EF9B6D] "
+                    href={item.href}
                   >
-                    <a href={item.href}>{item.label}</a>
-                  </li>
-                ))}
-              </ul>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="items-center justify-center hidden lg:flex">
+              <a href="#header" className="px-3 py-2 text-neutral-50">
+                Cart
+              </a>
             </div>
-          )}
+            <div className="flex-col justify-end lg:hidden md:flex ">
+              <button onClick={toggleNavbar} style={{ color: "#FFF" }}>
+                {mobileDrawerOpen ? <X /> : <Menu />}
+              </button>
+            </div>
+            {mobileDrawerOpen && (
+              <div className="absolute inset-x-0 py-4 rounded-b-lg shadow-lg top-16 bg-neutral-900 lg:hidden">
+                <ul className="flex flex-col items-start px-4 py-6 space-y-8 text-neutral-50">
+                  {navItems.map((item, index) => (
+                    <li
+                      key={index}
+                      className="text-base tracking-wider transition duration-300 hover:text-[#EF9B6D]  "
+                    >
+                      <a href={item.href}>{item.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 };
 

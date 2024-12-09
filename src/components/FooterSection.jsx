@@ -3,35 +3,40 @@ import { dataAbout, dataCategories } from "../constants";
 const FooterSection = () => {
   const textP =
     "text-xs text-neutral-500 font-normal tracking-wide py-1 cursor-pointer hover:text-neutral-100 md:text-sm";
+
   return (
-    <div className=" w-full flex justify-center flex-col items-center bg-neutral-900 rounded-t-2xl pt-5 md:flex-row">
-      <div className="w-full flex text-neutral-50 justify-center items-center md:items-center py-2 flex-row md:flex-col">
-        <h1 className="text-1xl font-semibold tracking-wide cursor-default md:text-2xl md:pe-4 pe-4 border-r-2 border-neutral-500 md:border-none">
-          Dhome
-        </h1>
-        <h1 className="text-1xl font-light text-neutral-600 tracking-wider cursor-default md:text-2xl ps-4 md:ps-0 ">
-          &#169; 2024 NN
-        </h1>
-      </div>
-      <div className="hidden w-full py-2  mx-0 gap-20 lg:flex md:bg-neutral-700 bg-neutral-900 rounded-t-2xl justify-center items-start md:mx-5">
-        <div className=" font-semibold  flex-col tracking-wide py-4 md:py-2 md:flex-row">
-          <span className="font-semibold cursor-default ">Shop</span>
-          {dataCategories.map((item, i) => (
-            <p key={i} className={`${textP}`}>
-              {item.title}
-            </p>
-          ))}
+    <footer id="contact" className="w-full pb-6 bg-neutral-900 rounded-t-2xl">
+      <div className="flex flex-col-reverse items-center justify-between px-12 pt-6 md:pt-12 md:flex-row ">
+        {/* Logo Section */}
+        <div className="flex flex-col w-full py-2 font-bold tracking-wide text-8xl text-neutral-700">
+          <h1>Furni</h1>
+          <h1>Craft</h1>
         </div>
-        <div className=" flex-col tracking-wide py-2">
-          <span className="font-semibold cursor-default">About</span>
-          {dataAbout.map((item, i) => (
-            <p key={i} className={`${textP}`}>
-              {item.label}
-            </p>
-          ))}
+
+        {/* Links Section */}
+        <div className="flex flex-row justify-between w-full py-2 md:w-1/4 md:items-start ">
+          {/* Shop Links */}
+          <div className="flex flex-col">
+            <span className="font-semibold text-neutral-50">Shop</span>
+            {dataCategories.map((item, i) => (
+              <p key={i} className={textP}>
+                {item.title}
+              </p>
+            ))}
+          </div>
+
+          {/* About Links */}
+          <div className="flex flex-col">
+            <span className="font-semibold text-neutral-50">About</span>
+            {dataAbout.map((item, i) => (
+              <p key={i} className={textP}>
+                {item.label}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
